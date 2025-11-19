@@ -1,0 +1,43 @@
+{% load static %}
+<footer class="site_footer" role="contentinfo">
+    <div class="footer_inner">
+        <div class="footer_col footer_explora">
+            <h5>EXPLORA</h5>
+            <ul>
+                <li><a href="{% url 'home' %}">Inicio</a></li>
+                <li><a href="#">Habitaciones</a></li>
+                <li><a href="#">Ubicación</a></li>
+            </ul>
+        </div>
+
+        <div class="footer_col footer_compania">
+            <div class="footer_logo_wrapper"> 
+                {# Ruta de imagen corregida #}
+                <img src="{% static 'images/logo_indigo.png' %}" alt="Logo Hotel Indigo" class="footer_logo_img">
+            </div>
+            <h5>COMPAÑÍA</h5>
+            <ul>
+                <li><a href="{% url 'nosotros' %}">Historia</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Aviso Legal</a></li>
+            </ul>
+        </div>
+
+        <div class="footer_col footer_social">
+            <h5>SOCIAL</h5>
+            <div class="social_icons">
+                <a href="#" aria-label="Facebook">
+                    {# Rutas de imagen corregidas #}
+                    <img src="{% static 'images/logofacebook.png' %}" alt="Facebook" class="social_icon_img">
+                </a>
+                <a href="#" aria-label="Instagram">
+                    <img src="{% static 'images/logoinstagram.png' %}" alt="Instagram" class="social_icon_img">
+                </a>
+                <a href="#" aria-label="Twitter">
+                    <img src="{% static 'images/logotwitter.png' %}" alt="Twitter" class="social_icon_img">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="footer_bottom">© 2025 Hotel Indigo. Todos los derechos reservados. </div>
+</footer>

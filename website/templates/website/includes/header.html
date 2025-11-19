@@ -1,0 +1,37 @@
+{% load static %}
+<header class="header_principal" role="banner">
+    <div class="contenedor_header">
+        <div class="header_top">
+            <h1 class="logo_hotel">
+                <a href="{% url 'home' %}">
+                    {# Ruta de imagen corregida #}
+                    <img src="{% static 'images/logo_indigo.png' %}" alt="Logo Hotel Indigo" class="imagen_logo">
+                    <span class="nombre_hotel">Hotel Indigo</span>
+                </a>
+            </h1>
+
+            <nav class="header_navbar" role="navigation" aria-label="Navegación principal">
+                <ul class="lista_nav">
+                    {# Rutas corregidas con la etiqueta {% url %} para mejor gestión de enlaces #}
+                    <li class="item_nav"><a href="{% url 'home' %}">Inicio</a></li>
+                    
+                    <li class="item_nav"><a href="{% url 'habitaciones' %}">Habitaciones</a></li>
+                    <li class="item_nav"><a href="#">Servicios</a></li>
+                    <li class="item_nav"><a href="#">Restaurant</a></li>
+                    <li class="item_nav"><a href="{% url 'eventos' %}">Eventos</a></li>
+                    <li class="item_nav"><a href="#">Ubicacion</a></li>
+                    <li class="item_nav"><a href="#">Contacto</a></li>
+                    <li class="item_nav"><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                    <li class="item_nav"><a href="{% url 'acceso' %}" class="boton_acceso">Acceso</a></li>
+                    
+                </ul>
+            </nav>
+
+            <div class="idioma" aria-label="Idioma del sitio">
+                {# Ruta de imagen corregida #}
+                <img src="{% static 'images/iconoidioma.png' %}" alt="Icono idioma" class="icon_globe" aria-hidden="true">
+                <span class="idioma_text">Español</span>
+            </div>
+        </div>
+    </div>
+</header>

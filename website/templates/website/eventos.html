@@ -1,0 +1,100 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %}Salones de Eventos{% endblock %}
+
+{% block content %}
+
+<section class="seccion_busqueda hero_eventos" role="banner">
+    <div class="contenedor_busqueda">
+        <h1>Salones y Espacios para Eventos</h1>
+        <p class="subtitulo">El escenario perfecto para conferencias, bodas y celebraciones.</p>
+    </div>
+</section>
+
+<section class="seccion_habitaciones">
+    <div class="contenedor">
+        <div class="titulo_seccion_home">
+            <h2>Nuestros Salones Disponibles</h2>
+            <p>Espacios versátiles con capacidad adaptable y equipamiento de última generación.</p>
+        </div>
+        
+        <div class="eventos-grid">
+            
+            <article class="salon_tarjeta" data-aos="fade-up">
+                <div class="salon_imagen">
+                    <img src="{% static 'images/salon_majestic.jpeg' %}" alt="Salón Gran Majestic" loading="lazy">
+                    <div class="salon_badge">Máxima Capacidad</div>
+                </div>
+                <div class="salon_contenido">
+                    <h3>Gran Majestic</h3>
+                    <p class="salon-description">
+                        El salón más amplio y elegante. Ideal para grandes conferencias, galas y bodas de gran tamaño.
+                    </p>
+                    <div class="salon-features">
+                        <span><i class="fas fa-users"></i> Capacidad: 300 personas (tipo: Banquete)</span>
+                        <span><i class="fas fa-tv"></i> Comodidades: Proyector HD, Sonido Premium, Luces LED inteligentes.</span>
+                    </div>
+                    <div class="salon_footer">
+                        <div class="precio_noche">
+                            <span class="amount color-acento">$120</span>
+                            <span class="period">precio base / hora</span>
+                        </div>
+                        {# URL Corregida #}
+                        <a href="{% url 'reserva_eventos' %}" class="boton_principal boton_gold">Cotizar Evento</a> 
+                    </div>
+                </div>
+            </article>
+            
+            <article class="salon_tarjeta" data-aos="fade-up" data-aos-delay="100">
+                <div class="salon_imagen">
+                    <img src="{% static 'images/salon_ejecutivo.jpeg' %}" alt="Sala Ejecutiva" loading="lazy">
+                    <div class="salon_badge salon_badge_light">Reuniones</div>
+                </div>
+                <div class="salon_contenido">
+                    <h3>Sala Ejecutiva</h3>
+                    <p class="salon-description">
+                        Perfecta para reuniones de negocios y talleres privados. Ofrece una atmósfera de concentración y profesionalismo.
+                    </p>
+                    <div class="salon-features">
+                        <span><i class="fas fa-users"></i> Capacidad: 25 personas (tipo: Reunión)</span>
+                        <span><i class="fas fa-wifi"></i> Comodidades: Pizarra Digital, Videoconferencia, Internet Fibra Óptica.</span>
+                    </div>
+                    <div class="salon_footer">
+                        <div class="precio_noche">
+                            <span class="amount color-acento">$45</span>
+                            <span class="period">precio base / hora</span>
+                        </div>
+                        <a href="{% url 'reserva_eventos' %}" class="boton_principal boton_gold">Cotizar Evento</a>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="salon_tarjeta" data-aos="fade-up" data-aos-delay="200">
+                <div class="salon_imagen">
+                    <img src="{% static 'images/terraza_sunset.jpeg' %}" alt="Terraza Sunset" loading="lazy">
+                    <div class="salon_badge">Exterior</div>
+                </div>
+                <div class="salon_contenido">
+                    <h3>Terraza Sunset</h3>
+                    <p class="salon-description">
+                        Espacio al aire libre en el rooftop. Ideal para cócteles y recepciones con vistas panorámicas.
+                    </p>
+                    <div class="salon-features">
+                        <span><i class="fas fa-users"></i> Capacidad: 100 personas (tipo: Cóctel)</span>
+                        <span><i class="fas fa-cocktail"></i> Comodidades: Barra de servicio, Iluminación ambiental, Vistas a la ciudad.</span>
+                    </div>
+                    <div class="salon_footer">
+                        <div class="precio_noche">
+                            <span class="amount color-acento">$80</span>
+                            <span class="period">precio base / hora</span>
+                        </div>
+                        <a href="{% url 'reserva_eventos' %}" class="boton_principal boton_gold">Cotizar Evento</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

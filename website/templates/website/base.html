@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Hotel Indigo | {% block title %}Inicio{% endblock %}</title>
+
+    {# Cargar la librería estática de Django #}
+    {% load static %}
+
+    {# Rutas CSS corregidas con la etiqueta {% static %} #}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+</head>
+<body>
+
+    {# CORREGIDO: Apuntando a la ruta anidada correcta #}
+    {% include 'website/includes/header.html' %} 
+
+    <main>
+        {# Este es el bloque que cada página individual llenará #}
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+    {# CORREGIDO: Apuntando a la ruta anidada correcta #}
+    {% include 'website/includes/footer.html' %} 
+
+    {# ... (código posterior) ... #}
+
+    {# Ruta JS corregida #}
+    <script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>

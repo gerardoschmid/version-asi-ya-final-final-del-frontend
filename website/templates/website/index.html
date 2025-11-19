@@ -1,0 +1,128 @@
+{# website/templates/website/index.html #}
+
+{# Indica que esta plantilla extiende la plantilla base #}
+{% extends "website/base.html" %}
+{% load static %}
+
+{# Define el título específico de esta página #}
+{% block title %}Inicio{% endblock %}
+
+{# Define el contenido principal de la página, reemplazando el bloque content de base.html #}
+{% block content %}
+
+    <section class="seccion_busqueda hero_home">
+        <section class="contenedor_busqueda">
+            <h2>EXPERIMENTA EL LUJO URBANO</h2>
+
+
+            <form class="formulario_busqueda">
+                <div class="formulario_flex">
+                    <div class="campo_formulario campo_select">
+                        <label for="fecha_entrada">Check-in:</label>
+                        <input type="date" id="fecha_entrada" required>
+                    </div>
+
+                    <div class="campo_formulario campo_select">
+                        <label for="fecha_salida">Check-out:</label>
+                        <input type="date" id="fecha_salida" required>
+                    </div>
+
+                    <div class="campo_formulario campo_huesped">
+                        <label for="adultos">Adultos</label>
+                        <div class="huesped_item">
+                            <input id="adultos" type="number" value="1" min="1" max="5">
+                        </div>
+                    </div>
+
+                    <div class="campo_formulario campo_huesped">
+                        <label for="habitaciones">Habitaciones</label>
+                        <div class="huesped_item">
+                            <input id="habitaciones" type="number" value="1" min="1" max="5">
+                        </div>
+                    </div>
+                    </div>
+                <button type="submit" class="boton_principal boton_gold">Reserva Ahora</button>
+            </form>
+        </section>
+    </section>
+
+    <div class="after_hero">
+
+        <section class="seccion_habitaciones" aria-label="Habitaciones Destacadas">
+            <div class="contenedor">
+                <div class="titulo_seccion_home">
+                    <h2>Habitaciones Destacadas</h2>
+                    <p>Elige el lujo y el confort que mereces.</p>
+                </div>
+
+                <div class="panel_habitaciones">
+                    <article class="habitacion_tarjeta">
+                        {# Ruta de imagen corregida #}
+                        <img src="{% static 'images/habitacion_king.jpeg' %}" alt="Habitación King Deluxe" class="imagen_habitacion">
+                        <div class="contenido_tarjeta">
+                            <h3>King Deluxe</h3>
+                            <p>Una habitación espaciosa con cama king size y vistas a la ciudad.</p>
+                            <p class="precio_noche">Desde $250 / Noche</p>
+                            <div class="botones_tarjeta">
+                                <a href="#" class="boton_principal boton_dark boton-detalles">Ver Detalles</a>
+                                <a href="#" class="boton_principal boton_gold boton-reservar">Reservar Ahora</a>
+                                
+                            </div>
+                        </div>
+                        
+                    </article>
+
+                    <article class="habitacion_tarjeta">
+                         {# Ruta de imagen corregida #}
+                        <img src="{% static 'images/habitacion_queen.jpeg' %}" alt="Habitación Queen Superior" class="imagen_habitacion">
+                        <div class="contenido_tarjeta">
+                            <h3>Queen Superior</h3>
+                            <p>Doble comodidad con dos camas queen y un diseño moderno.</p>
+                            <p class="precio_noche">Desde $180 / Noche</p>
+                            <div class="botones_tarjeta">
+                                <a href="#" class="boton_principal boton_dark boton-detalles">Ver Detalles</a>
+                                <a href="#" class="boton_principal boton_gold boton-reservar">Reservar Ahora</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    </div>
+            </div>
+        </section>
+
+        <section class="seccion_servicios" aria-label="Servicios del hotel">
+            <div class="contenedor_servicios">
+                <div class="services_scroll" role="list">
+                    <div class="service_item" role="listitem">
+                        {# Ruta de imagen corregida #}
+                        <img src="{% static 'images/serv_restaurante.jpg' %}" alt="Restaurante" />
+                        <span>Restaurante</span>
+                    </div>
+                    <div class="service_item" role="listitem">
+                        {# Ruta de imagen corregida #}
+                        <img src="{% static 'images/serv_terraza.jpg' %}" alt="Terraza" />
+                        <span>Terraza</span>
+                    </div>
+                    <div class="service_item" role="listitem">
+                        {# Ruta de imagen corregida #}
+                        <img src="{% static 'images/serv_taxi.jpg' %}" alt="Servicio de taxi" />
+                        <span>Servicio de taxi</span>
+                    </div>
+                    <div class="service_item" role="listitem">
+                        {# Ruta de imagen corregida #}
+                        <img src="{% static 'images/serv_bar.jpg' %}" alt="Bar" />
+                        <span>Bar</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion_mapa" aria-label="Mapa de ubicación">
+            <div class="map_wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.01907424909!2d-3.703790684681137!3d40.416775979363106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42288e6b0f4e7b%3A0x0!2zMzXCsDI1JzAwLjAiTiAzwrAzNyc0MC4wIlc!5e0!3m2!1ses!2ses!4v1600000000000!5m2!1ses!2ses" width="100%" height="360" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+
+    </div>
+    
+{% endblock content %}
