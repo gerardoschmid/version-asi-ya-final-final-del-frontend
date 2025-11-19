@@ -1,0 +1,70 @@
+/*
+    ==============================================
+    ADMIN.CSS
+    ==============================================
+*/
+
+:root {
+    --color-principal-oscuro: #2c3e50; /* Un azul oscuro y serio */
+    --color-acento: #c0392b; /* Un rojo/granate para acentos y acciones */
+    --color-fondo-claro: #ecf0f1; /* Un gris muy claro para el fondo */
+    --color-texto-principal: #34495e; /* Un gris oscuro para el texto */
+    --color-blanco: #ffffff;
+    --color-gold: #f1c40f;
+    --color-sombra: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background-color: var(--color-fondo-claro);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--color-texto-principal);
+}
+
+/* Header */
+#header {
+    background-color: var(--color-principal-oscuro);
+    color: var(--color-blanco);
+}
+
+#header a:link, #header a:visited {
+    color: var(--color-blanco);
+}
+
+#branding h1 {
+    color: var(--color-blanco);
+}
+
+/* Content */
+.module h2, .module caption, .inline-group h2 {
+    background-color: var(--color-principal-oscuro);
+    color: var(--color-blanco);
+}
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: var(--color-acento);
+    color: var(--color-blanco);
+    border-radius: 4px;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover, input[type=submit]:hover, input[type=button]:hover, .submit-row input:hover, a.button:hover {
+    background: #a5281b; /* Un rojo más oscuro para el hover */
+}
+
+/* Sidebar */
+#nav-sidebar .module {
+    border: 1px solid var(--color-sombra);
+    border-radius: 4px;
+    background: var(--color-blanco);
+}
+
+/* Dashboard Cards */
+.dashboard .module {
+    border: 1px solid var(--color-sombra);
+    border-radius: 8px;
+    background: var(--color-blanco);
+    box-shadow: 0 2px 4px var(--color-sombra);
+}
