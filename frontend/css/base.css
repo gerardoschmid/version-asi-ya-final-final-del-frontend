@@ -3,7 +3,7 @@
 :root {
     /* Colores Principales */
     --color-acento: #D0A75F; /* Dorado */
-    --color-principal-oscuro: #31333E; /* Marrón Oscuro */
+    --color-principal-oscuro: #000000; /* Marrón Oscuro */
     --color-texto-claro: #F8F9FA; /* Blanco Roto */
 
     /* Colores Secundarios */
@@ -36,7 +36,7 @@ html {
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "arial", Times, serif; /* CAMBIO AQUÍ */
     line-height: 1.6;
     color: var(--color-principal-oscuro);
     background-color: var(--color-fondo-claro);
@@ -98,7 +98,7 @@ a:hover {
 .contenedor {
     max-width: 1200px;
     margin: 0 auto;
-    padding: var(--espaciado-large);
+    padding: var(--espaciado-large); /* 32px */
 }
 
 /* 03 - Header y navegación */
@@ -109,17 +109,51 @@ a:hover {
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
 }
 
+/* AJUSTE PARA ALINEAR LOGO IZQUIERDA Y CONTENIDO DERECHA */
+
 .contenedor_header {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--espaciado-medium);
+    /* El contenedor ahora maneja la distribución Logo | Contenido Derecha */
+    display: flex;
+    justify-content: space-between; /* Mueve el logo a la izquierda y el contenido derecho a la derecha */
+    align-items: center;
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    padding: 8px 15px; /* Mantiene padding uniforme */
 }
 
-.header_top {
+/* El nuevo contenedor que agrupa Nav y Idioma */
+.header_derecha {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 200px; /* Espacio entre la barra nav y el selector de idioma */
 }
+
+/* Ajuste para el candado y texto de acceso */
+.boton_acceso {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Espacio entre el icono y el texto */
+    padding: 10px 15px !important; /* Ajusta padding para que el botón se vea mejor */
+    border-radius: 8px; /* Borde más redondeado para el botón */
+}
+
+/* Responsividad: Ocultar el texto en móvil para ahorrar espacio */
+@media (max-width: 900px) {
+    /* Asegúrate de que el contenedor derecho se ajuste correctamente */
+    .header_derecha {
+        gap: 10px; 
+    }
+    
+    .header_navbar {
+      
+        display: none; 
+    }
+    
+    /* Mostrar solo el icono del candado */
+    .boton_acceso span {
+        display: none; 
+    }
+}
+
 
 .logo_hotel a {
     display: flex;
@@ -180,7 +214,7 @@ a:hover {
 
 .icon_globe {
     width: 16px;
-    height: 16px;
+    height: 15px;
     margin-right: 5px;
 }
 
@@ -256,7 +290,7 @@ a:hover {
     padding: 12px 15px;
     border: 1px solid var(--input-border-color);
     border-radius: 6px;
-    font-size: 1rem;
+    font-size: 12 rem;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -271,7 +305,7 @@ a:hover {
 
 .boton_principal {
     display: inline-block;
-    padding: 12px 25px;
+    padding: 15px 30px;
     font-size: 1.1rem;
     font-weight: 700;
     text-align: center;
@@ -408,8 +442,9 @@ a:hover {
 }
 
 @media (max-width: 600px) {
-    .contenedor {
-        padding: var(--espaciado-medium);
+.contenedor {
+        /* Reducir el padding horizontal para ganar espacio en móvil */
+        padding: var(--espaciado-medium); /* 16px vertical y horizontal */
     }
 
     .footer_inner {
