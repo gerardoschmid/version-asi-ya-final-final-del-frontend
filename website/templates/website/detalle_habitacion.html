@@ -18,7 +18,7 @@
             
             <figure class="galeria_habitacion">
                 {# En la vida real, usaríamos un carrusel. Aquí usamos una imagen grande. #}
-                <img src="{% static 'images/habitacion_king_detalle.jpeg' %}" alt="Interior de la Habitación King Deluxe" class="imagen_principal_detalle">
+                <img src="{% static 'images/habitacion_king.jpeg' %}" alt="Interior de la Habitación King Deluxe" class="imagen_principal_detalle">
             </figure>
             
             <article class="detalle_info">
@@ -55,7 +55,7 @@
         </div>
         
         <aside class="detalle_columna_reserva" data-aos="fade-left">
-            <div class="caja_reserva">
+            <div class="panel_habitaciones">
                 
                 <h2>Reservar Esta Habitación</h2>
                 
@@ -74,13 +74,11 @@
                 </ul>
                 
                 {# El botón lleva al formulario de reserva de habitaciones #}
-                <a href="{% url 'reserva' %}" class="boton_principal boton_gold boton_fullwidth">
-                    Reservar Ahora
-                </a>
-                
-                <a href="{% url 'habitaciones' %}" class="boton_principal boton_dark boton_fullwidth boton_volver">
-                    Ver otras Habitaciones
-                </a>
+                            <div class="botones_tarjeta">
+                                <a href="{% url 'habitaciones' %}" class="boton_principal boton_dark boton-detalles">Volver</a>
+                                <a href="{% url 'reserva' %}" class="boton_principal boton_gold boton-reservar">Reservar</a>
+                                
+                            </div>
             </div>
         </aside>
         

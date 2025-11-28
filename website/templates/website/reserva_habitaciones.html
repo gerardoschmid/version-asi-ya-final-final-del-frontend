@@ -12,15 +12,15 @@
         <p class="subtitulo">Ingresa tus datos personales y luego confirma las fechas.</p>
     </div>
 </section>
-
+        <div class="pasos_indicador"> 
+            <div class="paso_item activo" data-step="1">1. Huésped</div> 
+            <div class="paso_item" data-step="2">2. Fechas</div> 
+        </div>
 <section class="seccion_reserva">
     {# Usamos contenedor principal y una clase específica para el layout de reserva #}
     <div class="contenedor contenedor_reserva"> 
         
-        <div class="pasos_indicador"> 
-            <div class="paso_item activo" data-step="1">1. Huésped</div> 
-            <div class="paso_item" data-step="2">2. Fechas & Pago</div> 
-        </div>
+
         
         <div class="panel_reserva_contenido">
         
@@ -62,89 +62,95 @@
             </aside>
             
             <form class="formulario_reserva" action="#" method="post">
-                {% csrf_token %} <div class="paso_formulario activo" data-step="1">
-                    
-                    <fieldset class="form__section">
-                        <legend>Información del Huésped Principal</legend>
-                        
-                        <div class="formulario_grid">
-                            {# Campo 1 #}
-                            <div class="campo_reserva">
-                                <label for="nombre">Nombre Completo:</label>
-                                <input id="nombre" name="nombre" type="text" placeholder="Nombre Apellido" required />
-                            </div>
-                            {# Campo 2 #}
-                            <div class="campo_reserva">
-                                <label for="email">Correo Electrónico:</label>
-                                <input id="email" name="email" type="email" placeholder="email@ejemplo.com" required autocomplete="email" />
-                            </div>
-                            {# Campo 3 #}
-                            <div class="campo_reserva">
-                                <label for="telefono">Teléfono de Contacto:</label>
-                                <input id="telefono" name="telefono" type="tel" placeholder="+58 412 1234567" />
-                            </div>
-                            {# Campo 4 #}
-                            <div class="campo_reserva">
-                                <label for="pais">País de Residencia:</label>
-                                <select id="pais" name="pais_residencia">
-                                    <option value="venezuela">Venezuela</option>
-                                    <option value="colombia">Colombia</option>
-                                    <option value="otro">Otro</option>
-                                </select>
-                            </div>
-                        </div>
-                    </fieldset>
-                    
-                    <div class="acciones_formulario">
-                        {# Usamos clases de botones existentes #}
-                        <button type="button" class="boton_principal boton_gold boton_siguiente" data-step-target="2">Continuar (Paso 2)</button>
-                    </div>
-                </div>
+{% csrf_token %} 
+    
+    <div class="form_card_reserva"> <div class="paso_formulario activo" data-step="1">
+            
+            <fieldset class="form__section">
+                <legend>Información del Huésped Principal</legend>
                 
-                <div class="paso_formulario" data-step="2">
+                <div class="formulario_grid">
                     
-                    <fieldset class="form__section">
-                        <legend>Detalles de la Estancia</legend>
-                        
-                        <div class="formulario_grid">
-                            {# Campo 5 #}
-                            <div class="campo_reserva">
-                                <label for="llegada">Fecha de Llegada:</label>
-                                <input id="llegada" name="fecha_llegada" type="date" required />
-                            </div>
-                            {# Campo 6 #}
-                            <div class="campo_reserva">
-                                <label for="salida">Fecha de Salida:</label>
-                                <input id="salida" name="fecha_salida" type="date" required />
-                            </div>
-                            {# Campo 7 #}
-                            <div class="campo_reserva">
-                                <label for="huespedes">Número de Huéspedes:</label>
-                                <input id="huespedes" name="num_huespedes" type="number" value="1" min="1" required />
-                            </div>
-                            {# Campo 8 #}
-                            <div class="campo_reserva">
-                                <label for="servicios">Servicios Adicionales:</label>
-                                <select id="servicios" name="servicios_adicionales">
-                                    <option value="none">Ninguno</option>
-                                    <option value="desayuno">Desayuno Gourmet</option>
-                                    <option value="spa">Pase Diario Spa</option>
-                                </select>
-                            </div>
-                        </div>
-                    </fieldset>
-
-                    <fieldset class="form__section">
-                        <legend>Confirmación de Pago</legend>
-                        <p class="total">Total Estimado: <span class="color-acento">$1,540 USD</span></p>
-                    </fieldset>
+                    <div class="campo_reserva">
+                        <label for="nombre">Nombre Completo:</label>
+                        <input id="nombre" name="nombre" type="text" placeholder="Nombre Apellido" required />
+                    </div>
                     
-                    <div class="acciones_formulario acciones_pago">
-                        {# Usamos clases de botones existentes #}
-                        <button type="button" class="boton_principal boton_dark boton_anterior" data-step-target="1">Atrás (Datos)</button>
-                        <button type="submit" class="boton_principal boton_gold boton_pagar">Finalizar y Pagar</button>
+                    <div class="campo_reserva">
+                        <label for="email">Correo Electrónico:</label>
+                        <input id="email" name="email" type="email" placeholder="email@ejemplo.com" required autocomplete="email" />
+                    </div>
+                    
+                    <div class="campo_reserva">
+                        <label for="telefono">Teléfono de Contacto:</label>
+                        <input id="telefono" name="telefono" type="tel" placeholder="+58 412 1234567" />
+                    </div>
+                    
+                    <div class="campo_reserva">
+                        <label for="pais">País de Residencia:</label>
+                        <select id="pais" name="pais_residencia">
+                            <option value="venezuela">Venezuela</option>
+                            <option value="colombia">Colombia</option>
+                            <option value="otro">Otro</option>
+                        </select>
                     </div>
                 </div>
+            </fieldset>
+            
+            <div class="acciones_formulario">
+                {# Botón dorado para avanzar #}
+                <button type="button" class="btn-details" data-step-target="2">Continuar (Paso 2)</button>
+            </div>
+        </div>
+        
+        <div class="paso_formulario" data-step="2">
+            
+            <fieldset class="form__section">
+                <legend>Detalles de la Estancia</legend>
+                
+                <div class="formulario_grid">
+                    
+                    <div class="campo_reserva">
+                        <label for="llegada">Fecha de Llegada:</label>
+                        <input id="llegada" name="fecha_llegada" type="date" required />
+                    </div>
+                    
+                    <div class="campo_reserva">
+                        <label for="salida">Fecha de Salida:</label>
+                        <input id="salida" name="fecha_salida" type="date" required />
+                    </div>
+                    
+                    <div class="campo_reserva">
+                        <label for="huespedes">Número de Huéspedes:</label>
+                        <input id="huespedes" name="num_huespedes" type="number" value="1" min="1" required />
+                    </div>
+                    
+                    <div class="campo_reserva">
+                        <label for="servicios">Servicios Adicionales:</label>
+                        <select id="servicios" name="servicios_adicionales">
+                            <option value="none">Ninguno</option>
+                            <option value="desayuno">Desayuno Gourmet</option>
+                            <option value="spa">Pase Diario Spa</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="form__section">
+                <legend>Confirmación de Pago</legend>
+                {# Uso de color-acento para que el total se destaque #}
+                <p class="total">Total Estimado: <span class="color-acento">$1,540 USD</span></p>
+            </fieldset>
+            
+            <div class="acciones_formulario acciones_pago">
+                {# Botón oscuro para retroceder #}
+                <button type="button" class="boton_principal boton_dark boton_anterior" data-step-target="1">Atrás (Datos)</button>
+                {# Botón dorado final para pagar #}
+                <button type="submit" class="btn-details">Finalizar y Confirmar</button>
+            </div>
+        </div>
+        
+    </div>
             </form>
         </div>
         

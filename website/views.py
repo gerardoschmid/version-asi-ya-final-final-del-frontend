@@ -55,3 +55,54 @@ def detalle_habitacion(request, habitacion_id):
     # El ID se usa en el backend para buscar, pero lo pasamos aquí
     context = {'habitacion_id': habitacion_id} 
     return render(request, 'website/detalle_habitacion.html', context)
+
+
+def servicios(request):
+    """
+    Renderiza la página de Servicios y Servicios Adicionales.
+    Corresponde a la tabla servicio_adicional en la DB.
+    """
+    return render(request, 'website/servicios.html')
+
+def reserva_restaurante(request):
+    """
+    Renderiza el formulario de reserva de restaurante.
+    """
+    # Apunta a la plantilla de reserva de mesa
+    return render(request, 'website/reservar_mesa.html') 
+
+def restaurante(request):
+    """
+    Renderiza la página principal del restaurante (o redirige a la reserva).
+    """
+    # Podemos hacer que la URL principal del restaurante cargue directamente la reserva, 
+    # o si tienes una plantilla de menú, puedes apuntar a ella.
+    return render(request, 'website/reservar_mesa.html') 
+
+# Opcional: Si tienes una URL para el menú, asegúrate de que esta exista
+def restaurante_menu(request):
+    """
+    Renderiza la página del menú del restaurante (placeholder).
+    """
+    return render(request, 'website/menu.html')
+
+def galeria(request):
+    return render(request, 'website/galeria.html')
+
+def contacto(request):
+    """Renderiza la página de contacto."""
+    return render(request, 'website/contacto.html')
+
+def admin_panel_base(request):
+    """
+    Renderiza la plantilla base del panel de administración.
+    La plantilla se encuentra en website/templates/website/admin/admin_base.html
+    """
+    # Importante: La ruta incluye la subcarpeta 'admin/'
+    return render(request, 'website/admin/admin_base.html')
+
+def empleo(request):
+    """
+    Renderiza la página de 'Trabaja con Nosotros'.
+    """
+    return render(request, 'website/empleo.html')

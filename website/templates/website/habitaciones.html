@@ -1,21 +1,19 @@
-{% extends "website/base.html" %}
-
+{% extends 'website/base.html' %}
 {% load static %}
-
-{% block title %}Habitaciones Disponibles{% endblock %}
+{% block title %}Habitaciones Disponibles | Hotel Indigo{% endblock %}
 
 {% block content %}
 
-{# Mantenemos la estructura de hero del index, pero usamos una clase específica para el fondo #}
-<section class="seccion_busqueda hero_habitaciones" role="banner">
+<section class="seccion_busqueda hero--rooms hero_reserva" role="banner">
+    
+    <video autoplay muted loop playsinline class="video_fondo">
+        <source src="{% static 'videos/fondo_habitaciones.mp4' %}" type="video/mp4">
+        </video>
     <div class="contenedor_busqueda">
-        <div class="hero__content">
-            <h2>Explora Nuestras Exclusivas Habitaciones</h2>
-            <p class="subtitulo">Comodidad y Lujo diseñados para tu descanso perfecto.</p>
-        </div>
+        <h1>Explora Nuestras Exclusivas Habitaciones</h1>
+        <p class="subtitulo">Comodidad y Lujo diseñados para tu descanso perfecto.</p>
     </div>
 </section>
-
 <section class="seccion_habitaciones">
     <div class="contenedor">
         <div class="titulo_seccion_home">
@@ -23,18 +21,14 @@
             <p>Elige la categoría que mejor se adapte a tu experiencia.</p>
         </div>
         
-        <div class="panel_habitaciones">
+        <div class="rooms-grid">
             
-            <article class="habitacion_tarjeta" data-aos="fade-up">
-                
+            <div class="card card--room" data-aos="fade-up">
                 <div class="card__image">
-                    {# La clase .imagen_habitacion se aplica al <img> y no necesita el wrapper card__image por el CSS existente #}
-                    <img src="{% static 'images/habitacion_king.jpeg' %}" alt="Habitación King Deluxe" class="imagen_habitacion" loading="lazy">
-                    {# Mantenemos el badge para una posible estilización futura #}
+                    <img src="{% static 'images/habitacion_king.jpeg' %}" alt="Habitación King Deluxe" loading="lazy">
                     <div class="card__badge">VISTA PANORÁMICA</div>
                 </div>
-
-                <div class="contenido_tarjeta">
+                <div class="card__content">
                     <h3 class="card__title">King Deluxe (Ocupación: Doble)</h3>
                     <p class="room-description">
                         Lujosa habitación con cama King Size. Disfrute de nuestro minibar premium y escritorio ejecutivo. 
@@ -44,27 +38,24 @@
                         <span><i class="fas fa-shower"></i> Características: Ducha de Lluvia</span>
                         <span><i class="fas fa-layer-group"></i> Categoría: Premium</span>
                     </div>
-                    
-                    <p class="precio_noche">
+                    <div class="card__price">
                         <span class="amount">$280</span>
                         <span class="period">precio base / noche</span>
-                    </p>
-                    
+                    </div>
                     <div class="botones_tarjeta">
-                        {# Clases de botones ajustadas al formato de index.html #}
-                        <a href="{% url 'detalle_habitacion' habitacion_id=1 %}" class="boton_principal boton_dark boton-detalles">Ver Detalles</a>
-                        <a href="#" class="boton_principal boton_gold boton-reservar">Reservar Ahora</a>
+                        {# Usar URLs con IDs de ejemplo o placeholders #}
+                        <a href="{% url 'detalle_habitacion' 1 %}" class="boton_principal boton_dark boton-detalles">Ver Detalles</a>
+                        <a href="{% url 'reserva' %}" class="boton_principal boton_gold boton-reservar">Reservar Ahora</a>
                     </div>
                 </div>
-            </article>
+            </div>
             
-            <article class="habitacion_tarjeta" data-aos="fade-up" data-aos-delay="100">
+            <div class="card card--room" data-aos="fade-up" data-aos-delay="100">
                 <div class="card__image">
-                    <img src="{% static 'images/habitacion_queen.jpeg' %}" alt="Habitación Queen Superior" class="imagen_habitacion" loading="lazy">
+                    <img src="{% static 'images/habitacion_queen.jpeg' %}" alt="Habitación Queen Superior" loading="lazy">
                     <div class="card__badge card__badge--light">SILENCIOSA</div>
                 </div>
-                
-                <div class="contenido_tarjeta">
+                <div class="card__content">
                     <h3 class="card__title">Queen Superior (Ocupación: Sencilla)</h3>
                     <p class="room-description">
                         Perfecta para viajes de negocios. Equipada con wifi de alta velocidad y un diseño moderno.
@@ -74,17 +65,16 @@
                         <span><i class="fas fa-window-maximize"></i> Características: Ventana Aislada</span>
                         <span><i class="fas fa-layer-group"></i> Categoría: Estándar</span>
                     </div>
-                    <p class="precio_noche">
+                    <div class="card__price">
                         <span class="amount">$190</span>
                         <span class="period">precio base / noche</span>
-                    </p>
+                    </div>
                     <div class="botones_tarjeta">
-                        <a href="{% url 'detalle_habitacion' habitacion_id=2 %}" class="boton_principal boton_dark boton-detalles">Ver Detalles</a>
-                        <a href="{% url 'reserva' %}" class="boton_principal boton_gold boton-reservar">Reservar Ahora</a>
+                        <a href="{% url 'detalle_habitacion' 2 %}" class="boton_principal boton_dark boton-detalles">Ver Detalles</a>
+                        <a href="{% url 'reserva'%}" class="boton_principal boton_gold boton-reservar">Reservar Ahora</a>
                     </div>
                 </div>
-            </article>
-
+            </div>
             
         </div>
     </div>

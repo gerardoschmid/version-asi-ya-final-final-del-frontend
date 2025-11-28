@@ -19,4 +19,22 @@ urlpatterns = [
     path('cotizar-evento/', views.reserva_eventos, name='reserva_eventos'),
 
     path('habitaciones/<int:habitacion_id>/', views.detalle_habitacion, name='detalle_habitacion'),
+    path('servicios/', views.servicios, name='servicios'),
+
+# website/urls.py
+# ...
+path('reservar-mesa/', views.reserva_restaurante, name='reserva_restaurante'),
+path('restaurant/', views.restaurante, name='restaurante'), 
+# ...
+
+path('menu/', views.restaurante_menu, name='restaurante_menu'),
+
+path('galeria/', views.galeria, name='galeria'),
+
+path('contacto/', views.contacto, name='contacto'),
+
+path('admin-panel/', views.admin_panel_base, name='admin_panel_base'),
+
+path('trabaja-con-nosotros/', views.empleo, name='empleo'),
+
 ]

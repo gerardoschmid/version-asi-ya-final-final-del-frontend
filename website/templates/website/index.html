@@ -10,53 +10,58 @@
 {# Define el contenido principal de la página, reemplazando el bloque content de base.html #}
 {% block content %}
 
-    <section class="seccion_busqueda hero_home">
-        <section class="contenedor_busqueda">
-            <h2>EXPERIMENTA EL LUJO URBANO</h2>
+<section class="seccion_busqueda hero_home">
+    
+    <video autoplay muted loop playsinline class="video_fondo">
+        <source src="{% static 'videos/fondo_banner.mp4' %}" type="video/mp4">
+        Tu navegador no soporta el tag de video.
+    </video>
+    <section class="contenedor_busqueda">
+        <h2>EXPERIMENTA EL LUJO URBANO</h2>
 
 
-            <form class="formulario_busqueda">
-                <div class="formulario_flex">
-                    <div class="campo_formulario campo_select">
-                        <label for="fecha_entrada">Check-in:</label>
-                        <input type="date" id="fecha_entrada" required>
-                    </div>
+        <form class="formulario_busqueda" method="get" action="{% url 'reserva' %}">
+            <div class="formulario_flex">
+                <div class="campo_formulario campo_select">
+                    <label for="fecha_entrada">Check-in:</label>
+                    <input type="date" id="fecha_entrada" name="fecha_entrada" required>
+                </div>
 
-                    <div class="campo_formulario campo_select">
-                        <label for="fecha_salida">Check-out:</label>
-                        <input type="date" id="fecha_salida" required>
-                    </div>
+                <div class="campo_formulario campo_select">
+                    <label for="fecha_salida">Check-out:</label>
+                    <input type="date" id="fecha_salida" name="fecha_salida" required>
+                </div>
 
-                    <div class="campo_formulario campo_huesped">
-                        <label for="adultos">Adultos</label>
-                        <div class="huesped_item">
-                            <input id="adultos" type="number" value="1" min="1" max="5">
-                        </div>
+                <div class="campo_formulario campo_huesped">
+                    <label for="adultos">Adultos</label>
+                    <div class="huesped_item">
+                        <input id="adultos" type="number" name="adultos" value="1" min="1" max="5">
                     </div>
+                </div>
 
-                    <div class="campo_formulario campo_huesped">
-                        <label for="habitaciones">Habitaciones</label>
-                        <div class="huesped_item">
-                            <input id="habitaciones" type="number" value="1" min="1" max="5">
-                        </div>
+                <div class="campo_formulario campo_huesped">
+                    <label for="habitaciones">Habitaciones</label>
+                    <div class="huesped_item">
+                        <input id="habitaciones" type="number" name="habitaciones" value="1" min="1" max="5">
                     </div>
-                    </div>
-                <button type="submit" class="boton_principal boton_gold">Reserva Ahora</button>
-            </form>
-        </section>
+                </div>
+            </div>
+            <button type="submit" class="boton_principal boton_gold">Reserva Ahora</button>
+        </form>
     </section>
+</section>
 
-    <div class="after_hero">
+<div class="after_hero">
 
-        <section class="seccion_habitaciones" aria-label="Habitaciones Destacadas">
+        <section class="seccion_habitaciones section-to-animate" aria-label="Habitaciones Destacadas">
             <div class="contenedor">
                 <div class="titulo_seccion_home">
                     <h2>Habitaciones Destacadas</h2>
                     <p>Elige el lujo y el confort que mereces.</p>
                 </div>
 
-                <div class="panel_habitaciones">
-                    <article class="habitacion_tarjeta">
+                <div class="rooms-grid">
+                    <article class="habitacion_tarjeta section-to-animate">
                         {# Ruta de imagen corregida #}
                         <img src="{% static 'images/habitacion_king.jpeg' %}" alt="Habitación King Deluxe" class="imagen_habitacion">
                         <div class="contenido_tarjeta">
@@ -90,38 +95,112 @@
             </div>
         </section>
 
-        <section class="seccion_servicios" aria-label="Servicios del hotel">
-            <div class="contenedor_servicios">
-                <div class="services_scroll" role="list">
-                    <div class="service_item" role="listitem">
-                        {# Ruta de imagen corregida #}
-                        <img src="{% static 'images/serv_restaurante.jpg' %}" alt="Restaurante" />
-                        <span>Restaurante</span>
-                    </div>
-                    <div class="service_item" role="listitem">
-                        {# Ruta de imagen corregida #}
-                        <img src="{% static 'images/serv_terraza.jpg' %}" alt="Terraza" />
-                        <span>Terraza</span>
-                    </div>
-                    <div class="service_item" role="listitem">
-                        {# Ruta de imagen corregida #}
-                        <img src="{% static 'images/serv_taxi.jpg' %}" alt="Servicio de taxi" />
-                        <span>Servicio de taxi</span>
-                    </div>
-                    <div class="service_item" role="listitem">
-                        {# Ruta de imagen corregida #}
-                        <img src="{% static 'images/serv_bar.jpg' %}" alt="Bar" />
-                        <span>Bar</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section class="seccion_servicios" aria-label="Servicios del hotel">
+    <div class="contenedor_servicios">
 
-        <section class="seccion_mapa" aria-label="Mapa de ubicación">
-            <div class="map_wrapper">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.01907424909!2d-3.703790684681137!3d40.416775979363106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42288e6b0f4e7b%3A0x0!2zMzXCsDI1JzAwLjAiTiAzwrAzNyc0MC4wIlc!5e0!3m2!1ses!2ses!4v1600000000000!5m2!1ses!2ses" width="100%" height="360" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <div class="titulo_seccion_home">
+            <h2>Conoce Nuestros Servicios</h2>
+            <p>Todos los servicios que disfrutaras en nuestro hermoso hotel.</p>
+        </div>
+
+        <div class="menu-carousel" data-category="servicios"> 
+            
+            <button class="carousel-btn carousel-btn-left" aria-label="Servicio anterior">‹</button>
+            
+            <div class="carousel-track"> 
+                
+                <div class="service_item" role="listitem">
+                    <img src="{% static 'images/restaurante.jpeg' %}" alt="Restaurante" />
+                    <span class="titulo_servicios">RESTAURANTE</span>
+                    <p class="servicios_descripcion">Más que un restaurante, somos tu rincón de felicidad casera. Cada plato es una carta de amor, cocinado a fuego lento y con el toque secreto de la abuela. Ven y déjate envolver por un ambiente cálido y acogedor, donde cada cena se siente como un abrazo y cada bocado te transporta a los recuerdos más dulces. Aquí, el ingrediente principal es el corazón.</p>
+                </div>
+                
+                <div class="service_item" role="listitem">
+                    <img src="{% static 'images/terraza.jpeg' %}" alt="Terraza" />
+                    <span class="titulo_servicios">TERRAZA</span>
+                    <p class="servicios_descripcion">Bienvenido a nuestro oasis en las alturas. Diseñada para la máxima relajación, nuestra terraza con piscina te invita a desconectar bajo el sol. Recuéstate en nuestras cómodas tumbonas, pide un snack ligero y refrescante, y sumérgete en el lujo sereno. Con un diseño que fusiona lo natural y lo moderno, este es tu espacio exclusivo para disfrutar de días de sol radiante y cielos despejados, sintiéndote a kilómetros de distancia del bullicio.</p>
+                </div>
+
+                <div class="service_item" role="listitem">
+                    <img src="{% static 'images/pronto.png' %}" alt="Salón de Eventos" /> 
+                    <span class="titulo_servicios">SALÓN DE EVENTOS</span>
+                    
+                    <p class="servicios_descripcion">Tu evento soñado cobra vida en nuestro elegante salón. Con capacidad flexible y un equipo de planificación dedicado, ofrecemos el ambiente perfecto para bodas, conferencias o reuniones corporativas. Contamos con tecnología de punta y servicios de catering personalizados para garantizar que cada detalle sea impecable, dejando una impresión duradera en tus invitados.</p>
+                
+                
+                </div>
+                
+                <div class="service_item" role="listitem">
+                    <img src="{% static 'images/serv_taxi.jpg' %}" alt="Servicio de Taxi" /> 
+                    <span class="titulo_servicios">TAXI</span>
+                    <p class="servicios_descripcion">Garantiza tu tranquilidad y puntualidad con nuestro servicio de taxi exclusivo. Te ofrecemos traslados seguros, cómodos y rápidos desde y hacia el aeropuerto, estaciones o cualquier punto de la ciudad. Nuestros conductores son profesionales y están disponibles 24 horas al día, 7 días a la semana, para que tu único enfoque sea disfrutar de tu estancia.</p>
+                </div>
+
             </div>
-        </section>
+            
+            <button class="carousel-btn carousel-btn-right" aria-label="Siguiente servicio">›</button>
+
+        </div> 
+        </div>
+</section>
+
+{# Sección para "Conoce Barinas" #}
+<section class="seccion_barinas section-to-animate" aria-label="Lugares turísticos de Barinas">
+    <div class="contenedor_servicios">
+        <div class="titulo_seccion_home">
+            <h2>Conoce Barinas</h2>
+            <p>Descubre los tesoros naturales y culturales que rodean nuestro hotel.</p>
+        </div>
+
+        <div class="contenedor_servicios">
+            <div class="menu-carousel" data-category="barinas"> 
+                
+                <button class="carousel-btn carousel-btn-left" aria-label="Lugar anterior">‹</button>
+                
+                <div class="carousel-track"> 
+                    
+                    {# 1. PARQUE NACIONAL SIERRRA NEVADA (Páramos y Montaña) #}
+                    <div class="service_item" role="listitem">
+                        <img src="{% static 'images/sierra_nevada.jpg' %}" alt="Páramos de Barinas" />
+                        <span class="titulo_servicios">SIERRA NEVADA</span>
+                        <p class="servicios_descripcion">Aunque Barinas es llanera, una parte colinda con los Andes. Explora la majestuosidad de los páramos y disfruta de senderismo en la Cordillera de Mérida. Un escape fresco y natural a solo unas horas. Perfecto para los amantes de la aventura y la fotografía de paisajes altos.</p>
+                    </div>
+                    
+                    {# 2. RÍO SANTO DOMINGO (Deportes Acuáticos) #}
+                    <div class="service_item" role="listitem">
+                        <img src="{% static 'images/rio_santo_domingo.jpg' %}" alt="Río Santo Domingo" />
+                        <span class="titulo_servicios">RÍO SANTO DOMINGO</span>
+                        <p class="servicios_descripcion">El principal afluente del estado, ideal para actividades de aventura como canotaje (rafting) en épocas de crecida, o simplemente para disfrutar de sus orillas y la rica biodiversidad llanera. Un lugar para refrescarse y conectar con la naturaleza.</p>
+                    </div>
+    
+                    {# 3. RESERVA DE CAPARO (Fauna y Sabana) #}
+                    <div class="service_item" role="listitem">
+                        <img src="{% static 'images/reserva_caparo.png' %}" alt="Reserva Forestal de Caparo" /> 
+                        <span class="titulo_servicios">RESERVA DE CAPARO</span>
+                        <p class="servicios_descripcion">Un vasto ecosistema de sabana y bosque. Es un destino privilegiado para el **ecoturismo** y la observación de fauna silvestre, incluyendo venados, capibaras y diversas especies de aves tropicales. Vive la experiencia de los Llanos en su máxima expresión.</p>
+                    </div>
+                    
+                    {# 4. CENTRO HISTÓRICO DE BARINAS #}
+                    <div class="service_item" role="listitem">
+                        <img src="{% static 'images/cataratas.jpg' %}" alt="Casco Histórico de Barinas" /> 
+                        <span class="titulo_servicios">CATARATAS</span>
+                        <p class="servicios_descripcion">Descubre la imponente belleza natural en las cascadas cercanas a Barinas. Un escape perfecto para el senderismo y la fotografía. Disfruta del sonido relajante del agua y de la vegetación exuberante que crea un ambiente fresco y sereno. Ideal para una excursión de un día y conectar con el lado más salvaje de los llanos andinos.</p>
+                    </div>
+    
+                </div>
+                
+                <button class="carousel-btn carousel-btn-right" aria-label="Siguiente lugar">›</button>
+
+            </div> 
+        </div>
+    </div>
+</section>
+
+<section class="seccion_mapa" id="mapa-ubicacion" aria-label="Mapa de ubicación">
+    <div class="map_wrapper">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.01907424909!2d-3.703790684681137!3d40.416775979363106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42288e6b0f4e7b%3A0x0!2zMzXCsDI1JzAwLjAiTiAzwrAzNyc0MC4wIlc!5e0!3m2!1ses!2ses!4v1600000000000!5m2!1ses!2ses" width="100%" height="360" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+</section>
 
     </div>
     

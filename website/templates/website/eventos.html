@@ -1,6 +1,6 @@
 {% extends 'website/base.html' %}
 {% load static %}
-{% block title %}Salones de Eventos{% endblock %}
+{% block title %}Salones de Eventos | Hotel Indigo{% endblock %}
 
 {% block content %}
 
@@ -20,79 +20,81 @@
         
         <div class="eventos-grid">
             
-            <article class="salon_tarjeta" data-aos="fade-up">
-                <div class="salon_imagen">
-                    <img src="{% static 'images/salon_majestic.jpeg' %}" alt="Salón Gran Majestic" loading="lazy">
-                    <div class="salon_badge">Máxima Capacidad</div>
+            <div class="salon-card" data-aos="fade-up">
+                <div class="salon-image">
+                    <img src="{% static 'images/salon_eventos.png' %}" alt="Salón Gran Majestic" loading="lazy">
+                    <div class="salon-badge">Máxima Capacidad</div>
                 </div>
-                <div class="salon_contenido">
+                <div class="salon-content">
                     <h3>Gran Majestic</h3>
                     <p class="salon-description">
                         El salón más amplio y elegante. Ideal para grandes conferencias, galas y bodas de gran tamaño.
                     </p>
-                    <div class="salon-features">
-                        <span><i class="fas fa-users"></i> Capacidad: 300 personas (tipo: Banquete)</span>
-                        <span><i class="fas fa-tv"></i> Comodidades: Proyector HD, Sonido Premium, Luces LED inteligentes.</span>
-                    </div>
-                    <div class="salon_footer">
-                        <div class="precio_noche">
-                            <span class="amount color-acento">$120</span>
-                            <span class="period">precio base / hora</span>
+                    <h4 style="width:100%;margin:0 0 0.5rem 0;">INFORMACIÓN SALÓN</h4>
+                    <div class="salon-features" style="display:flex;gap:1rem;flex-wrap:wrap;align-items:flex-start;">
+                        <div class="feature" style="flex:1 1 200px;text-align:center;">
+                            <div class="feature-icon" style="font-size:2.2rem;margin-bottom:0.5rem;color:inherit;">
+                                <i class="fas fa-users" aria-hidden="true"></i>
+                            </div>
+                            <div class="feature-title" style="font-weight:600;margin-bottom:0.25rem;">Capacidad</div>
+                            <div class="feature-desc" style="font-size:.95rem;color:#555;">300 personas (tipo: Banquete)</div>
                         </div>
-                        {# URL Corregida #}
-                        <a href="{% url 'reserva_eventos' %}" class="boton_principal boton_gold">Cotizar Evento</a> 
+
+                        <div class="feature" style="flex:1 1 200px;text-align:center;">
+                            <div class="feature-icon" style="font-size:2.2rem;margin-bottom:0.5rem;color:inherit;">
+                                <i class="fas fa-tv" aria-hidden="true"></i>
+                            </div>
+                            <div class="feature-title" style="font-weight:600;margin-bottom:0.25rem;">Comodidades</div>
+                            <div class="feature-desc" style="font-size:.95rem;color:#555;">Proyector HD, Sonido Premium, Luces LED inteligentes.</div>
+                        </div>
+                    </div>
+                        
+                   <div class="salon_footer">
+    
+    <div class="salon_botones"> 
+        <a href="#" class="boton_principal boton_gold">COTIZAR EVENTO</a>
+    </div>
                     </div>
                 </div>
-            </article>
+            </div>
             
-            <article class="salon_tarjeta" data-aos="fade-up" data-aos-delay="100">
-                <div class="salon_imagen">
-                    <img src="{% static 'images/salon_ejecutivo.jpeg' %}" alt="Sala Ejecutiva" loading="lazy">
-                    <div class="salon_badge salon_badge_light">Reuniones</div>
+            <div class="salon-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="salon-image">
+                    <img src="{% static 'images/salon_eventos.png' %}" alt="Sala Ejecutiva" loading="lazy">
+                    <div class="salon-badge salon-badge-light">Reuniones</div>
                 </div>
-                <div class="salon_contenido">
-                    <h3>Sala Ejecutiva</h3>
+                <div class="salon-content">
+                     <H3>SALÓN DE REUNIONES </h3>
                     <p class="salon-description">
                         Perfecta para reuniones de negocios y talleres privados. Ofrece una atmósfera de concentración y profesionalismo.
                     </p>
-                    <div class="salon-features">
-                        <span><i class="fas fa-users"></i> Capacidad: 25 personas (tipo: Reunión)</span>
-                        <span><i class="fas fa-wifi"></i> Comodidades: Pizarra Digital, Videoconferencia, Internet Fibra Óptica.</span>
-                    </div>
-                    <div class="salon_footer">
-                        <div class="precio_noche">
-                            <span class="amount color-acento">$45</span>
-                            <span class="period">precio base / hora</span>
-                        </div>
-                        <a href="{% url 'reserva_eventos' %}" class="boton_principal boton_gold">Cotizar Evento</a>
-                    </div>
-                </div>
-            </article>
-            
-            <article class="salon_tarjeta" data-aos="fade-up" data-aos-delay="200">
-                <div class="salon_imagen">
-                    <img src="{% static 'images/terraza_sunset.jpeg' %}" alt="Terraza Sunset" loading="lazy">
-                    <div class="salon_badge">Exterior</div>
-                </div>
-                <div class="salon_contenido">
-                    <h3>Terraza Sunset</h3>
-                    <p class="salon-description">
-                        Espacio al aire libre en el rooftop. Ideal para cócteles y recepciones con vistas panorámicas.
-                    </p>
-                    <div class="salon-features">
-                        <span><i class="fas fa-users"></i> Capacidad: 100 personas (tipo: Cóctel)</span>
-                        <span><i class="fas fa-cocktail"></i> Comodidades: Barra de servicio, Iluminación ambiental, Vistas a la ciudad.</span>
-                    </div>
-                    <div class="salon_footer">
-                        <div class="precio_noche">
-                            <span class="amount color-acento">$80</span>
-                            <span class="period">precio base / hora</span>
-                        </div>
-                        <a href="{% url 'reserva_eventos' %}" class="boton_principal boton_gold">Cotizar Evento</a>
-                    </div>
-                </div>
-            </article>
+                    <div class="salon-features" style="display:flex;gap:1rem;flex-wrap:wrap;align-items:flex-start;">
+                        <h4 style="width:100%;margin:0 0 0.5rem 0;">INFORMACIÓN SALÓN</h4>
 
+                        <div class="feature" style="flex:1 1 200px;text-align:center;">
+                            <div class="feature-icon" style="font-size:2.2rem;margin-bottom:0.5rem;color:inherit;">
+                                <i class="fas fa-users" aria-hidden="true"></i>
+                            </div>
+                            <div class="feature-title" style="font-weight:600;margin-bottom:0.25rem;">Capacidad</div>
+                            <div class="feature-desc" style="font-size:.95rem;color:#555;">25 personas (Reunión)</div>
+                        </div>
+
+                        <div class="feature" style="flex:1 1 200px;text-align:center;">
+                            <div class="feature-icon" style="font-size:2.2rem;margin-bottom:0.5rem;color:inherit;">
+                                <i class="fas fa-wifi" aria-hidden="true"></i>
+                            </div>
+                            <div class="feature-title" style="font-weight:600;margin-bottom:0.25rem;">Comodidades</div>
+                            <div class="feature-desc" style="font-size:.95rem;color:#555;">Pizarra digital, videoconf. y fibra óptica</div>
+                        </div>
+                    </div>
+                    <div class="salon_footer">
+    
+    <div class="salon_botones"> 
+        <a href="{% url 'reserva_eventos' %}" class="boton_principal boton_gold">COTIZAR EVENTO</a>
+    </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
